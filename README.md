@@ -1,6 +1,8 @@
 # mackit
 Optimize the macOS operating system for software development efficiency.
 
+<br>
+
 ## Quick Start
 
 > **Warning:** Running the following commands executes all scripts in this repository. Please review the changes this project makes before running on your system.\
@@ -16,12 +18,18 @@ curl -s https://raw.githubusercontent.com/jaidencoleflannery/mackit/master/auto-
 git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod +x auto-configuration.sh && ./auto-configuration.sh
 ```
 
+<br>
+
 ---
+
+<br>
 
 ## Modules
 
 > **Note:** This project is a compilation of scripts, referred to as "modules" -
 > following sections focus on what changes each module makes.
+
+<br>
 
 ### VSCode Settings
 **vscode-settings.sh:**
@@ -45,7 +53,11 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **editor.codeActionsOnSave** | `source.fixAll.eslint: "never"` | ESLint auto fix disabled on save. |
 | **explorer.confirmDragAndDrop** | `false` | Drag and drop in the Explorer happen without a prompt. |
 
+<br>
+
 ---
+
+<br>
 
 ### VSCode Keybindings
 
@@ -78,7 +90,11 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **cmd+b** | <details><summary>View</summary>`workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus`</details> | Returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back. |
 | **cmd+shift+t** | <details><summary>View</summary>`explorer.newFolder` `when: explorerViewletFocus`</details> | Creates a new folder when the explorer sidebar is focused. |
 
+<br>
+
 ---
+
+<br>
 
 ### Preferences
 **preferences.sh:**
@@ -114,7 +130,11 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **AppleSpacesSwitchOnActivate** | `false` | Prevents Mac from switching to a space where an app is already open when you activate that app. |
 | **Wi-Fi DNS** | `1.1.1.1, 8.8.8.8` | Sets DNS servers to Cloudflare and Google for more reliable resolution. |
 
+<br>
+
 ---
+
+<br>
 
 ### Packages
 **packages.sh:**
