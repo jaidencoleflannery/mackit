@@ -1,11 +1,18 @@
 # mackit
-
-## A set of easily runnable scripts to optimize the mac operation system.
+Optimize the macOS operating system for software development efficiency.
 
 ---
 
-### Quick Start:
+## Quick Start
 
-#### WARNING: running the following commands runs all contained scripts within this repo, please review the changes this project makes before running on your system.
-- Run: ```curl -s https://github.com/jaidencoleflannery/mackit/blob/master/auto-configuration.sh | zsh``` to automatically configure your system.
-- Alternatively: Clone this repo, and then run locally: ```git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod +x auto-configuration.sh && ./auto-configuration.sh```
+> **Warning:** Running the following commands executes all scripts in this repository. Please review the changes this project makes before running on your system.
+
+**Option 1 - Run directly:**
+```zsh
+curl -s https://github.com/jaidencoleflannery/mackit/blob/master/auto-configuration.sh | zsh
+```
+
+**Option 2 - Clone and run locally:**
+```zsh
+git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod +x auto-configuration.sh && ./auto-configuration.sh
+```
