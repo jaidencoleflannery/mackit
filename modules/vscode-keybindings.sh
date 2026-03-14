@@ -62,12 +62,19 @@ cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak" || {
     return 1; 
 }
 
+# if file is an empty object, it should be an empty array
+EXISTING=$(jq 'if type == "object" then [] else . end' "$VSCODE_KEYBINDINGS")
+
 # merge (ensure there are no duplicates)
-if ! jq --argjson new "$NEW_KEYBINDINGS" '. * $new' "$NEW_KEYBINDINGS" > /tmp/keybindings_tmp.json 2>/tmp/keybindings_jq_err.json; then
-  echo "\'jq\' failed to merge keybindings. Details:"
-  cat /tmp/keybindings_jq_err.json
-  return 1
+if ! echo "$EXISTING" | jq --argjson new "$NEW_KEYBINDINGS" \
+    '. * $new | unique_by(.key + .command)' \
+    > /tmp/keybindings_tmp.json 2>/tmp/keybindings_jq_err.json; then
+        echo "\'jq\' failed to merge keybindings. Details:"
+        cat /tmp/keybindings_jq_err.json
+    return 1
 fi
+
+mv /tmp/keybindings_tmp.json "$VSCODE_KEYBINDINGS"
 
 if [ "$CHILD" != "true" ]; then
     echo -e "\n[ Mackit - VSCode Keybindings ]\n~ This script optimized your MacOS VSCode Keybindings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
