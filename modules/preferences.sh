@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo -e "\n[ Mackit ] ~ Configuring MacOS preferences."
+echo -e "[ Mackit ] ~ Configuring MacOS preferences."
 
 # if ran from a parent, do not print
 CHILD=$1
