@@ -1,8 +1,6 @@
 # mackit
 Optimize the macOS operating system for software development efficiency.
 
----
-
 ## Quick Start
 
 > **Warning:** Running the following commands executes all scripts in this repository. Please review the changes this project makes before running on your system.
