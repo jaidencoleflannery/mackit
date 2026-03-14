@@ -23,5 +23,5 @@ brew install jq # required for later scripts
 brew install dotnet
 
 if [ "$CHILD" != true ]; then
-    echo "\n[ Mackit - Packages ]\n~ This script installed commonly used packages on your system.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
+    echo -e "\n[ Mackit - Packages ]\n~ This script installed commonly used packages on your system.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
 fi
