@@ -48,7 +48,7 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 ### VSCode Keybindings
 **vscode-keybindings.sh:**
 
-###
+#### Overview:
 | Shortcut | Action |
 |----------|--------|
 | `` cmd+t `` | New file |
@@ -59,6 +59,7 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | `` cmd+b `` | Toggle file explorer |
 | `` cmd+` `` | Toggle terminal |
 
+### Bindings:
 | Keybind | Command | Description |
 |---------|---------|-------------|
 | **tab** | <details><summary>View</summary>`-acceptSelectedSuggestion`</details> | Removes tab as the key to accept an autocomplete suggestion. |
