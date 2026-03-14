@@ -67,3 +67,8 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 - **cmd+b** `workbench.explorer.fileView.focus` `when: activeViewlet != explorer` - opens and focuses the Explorer sidebar when it isn't already active.
 - **cmd+b** `workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus` - returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back.
 - **cmd+shift+t** `explorer.newFolder` `when: explorerViewletFocus` - creates a new folder when the explorer sidebar is focused.
+
+---
+
+## Contributing
+This project is not currently open to contributions.
