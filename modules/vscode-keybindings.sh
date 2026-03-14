@@ -34,7 +34,7 @@ if ! jq empty "$VSCODE_KEYBINDINGS" 2>/dev/null; then
     return 1
 fi
 
-NEW_BINDINGS='[
+NEW_KEYBINDINGS='[
     { "key": "tab",         "command": "-acceptSelectedSuggestion" },
     { "key": "tab",         "command": "-editor.action.inlineSuggest.commit" },
     { "key": "cmd+t",       "command": "-workbench.action.showAllSymbols" },
