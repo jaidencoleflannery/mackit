@@ -66,8 +66,8 @@ cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak" || {
 EXISTING=$(jq 'if type == "object" then [] else . end' "$VSCODE_KEYBINDINGS")
 
 # merge (ensure there are no duplicates)
-if ! echo "$EXISTING" | jq --argjson new "$NEW_KEYBINDINGS" \
-    '. * $new | unique_by(.key + .command)' \
+if ! echo "$EXISTING" | jq --slurpfile new /tmp/new_keybindings.json \
+    '(. * $new[0]) | unique_by(.key + (.command // ""))' \
     > /tmp/keybindings_tmp.json 2>/tmp/keybindings_jq_err.json; then
         echo "\'jq\' failed to merge keybindings. Details:"
         cat /tmp/keybindings_jq_err.json
