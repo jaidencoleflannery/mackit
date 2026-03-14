@@ -5,7 +5,7 @@ echo -e "\n[ Mackit ] ~ Configuring VSCode keybindings."
 # make sure dependency exists
 if ! command -v jq &>/dev/null; then
     echo -e "The command line tool \'jq\' is required to run vscode-keybindings.sh."
-    exit 1
+    return 1
 fi
 
 # if ran from a parent, do not print
@@ -23,15 +23,15 @@ fi
 # accessible and not empty?
 if [ ! -r "$VSCODE_KEYBINDINGS" ]; then
     echo "VSCode's keybindings file could not be found or accessed."
-    exit 1
+    return 1
 fi
 if [ ! -w "$VSCODE_KEYBINDINGS" ]; then
     echo "VSCode's keybindings file could not be written to."
-    exit 1
+    return 1
 fi
 if ! jq empty "$VSCODE_KEYBINDINGS" 2>/dev/null; then
     echo "VSCode's keybindings file's existing JSON is invalid, cannot append."
-    exit 1
+    return 1
 fi
 
 NEW_BINDINGS='[
@@ -53,20 +53,20 @@ NEW_BINDINGS='[
 # check if JSONC is being used
 if grep -qE '^\s*//|^\s*/\*' "$VSCODE_KEYBINDINGS"; then
     echo "JSONC detected, keybindings could not be written."
-    exit 1
+    return 1
 fi
 
 # backup (this overwrites the previous overwrite) 
 cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak" || {
     echo -e "Failed to create keybindings backup."; 
-    exit 1; 
+    return 1; 
 }
 
 # merge (ensure there are no duplicates)
-if ! jq --argjson new "$NEW_KEYBINDINGS" '. * $new' "$NEW_KEYBINDIGNS" > /tmp/keybindings_tmp.json 2>/tmp/keybindings_jq_err.json; then
+if ! jq --argjson new "$NEW_KEYBINDINGS" '. * $new' "$NEW_KEYBINDINGS" > /tmp/keybindings_tmp.json 2>/tmp/keybindings_jq_err.json; then
   echo "\'jq\' failed to merge keybindings. Details:"
   cat /tmp/keybindings_jq_err.json
-  exit 1
+  return 1
 fi
 
 if [ "$CHILD" != "true" ]; then

@@ -4,7 +4,7 @@ echo -e "\n[ Mackit ] ~ Configuring VSCode settings."
 
 if ! command -v jq &>/dev/null; then
     echo "The command line tool \'jq\' is required to run vscode-settings.sh."
-    exit 1
+    return 1
 fi
 
 # if ran from parent, do not print
@@ -21,15 +21,15 @@ fi
 # accessible and not empty?
 if [ ! -r "$VSCODE_SETTINGS" ]; then
     echo "VSCode's settings file could not be found or accessed."
-    exit 1
+    return 1
 fi
 if [ ! -w "$VSCODE_SETTINGS" ]; then
     echo "VSCode's settings file could not be written to."
-    exit 1
+    return 1
 fi
 if ! jq empty "$VSCODE_SETTINGS" 2>/dev/null; then
     echo "VSCode's settings file's existing JSON is invalid, cannot append."
-    exit 1
+    return 1
 fi
 
 NEW_SETTINGS='{
@@ -59,25 +59,25 @@ NEW_SETTINGS='{
 # check if JSONC is being used
 if grep -qE '^\s*//|^\s*/\*' "$VSCODE_SETTINGS"; then
     echo "JSONC detected, settings could not be written."
-    exit 1
+    return 1
 fi
 
 # backup (this overwrites on each run)
 cp "$VSCODE_SETTINGS" "$VSCODE_SETTINGS.bak" || { 
     echo -e "Failed to create settings backup."; 
-    exit 1; 
+    return 1; 
 }
 
 # merge (ensure there are no duplicates)
 if ! jq --argjson new "$NEW_SETTINGS" '. * $new' "$VSCODE_SETTINGS" > /tmp/settings_tmp.json 2>/tmp/settings_jq_err.json; then
   echo "\'jq\' failed to merge settings. Details:"
   cat /tmp/settings_jq_err.json
-  exit 1
+  return 1
 fi
   
 if ! mv /tmp/settings_tmp.json "$VSCODE_SETTINGS"; then
     echo "Failed to merge settings to \'$VSCODE_SETTINGS'."
-    exit 1
+    return 1
 fi
 
 echo "Settings written successfully to $VSCODE_SETTINGS"
