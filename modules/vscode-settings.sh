@@ -12,13 +12,13 @@ CHILD=$1
 
 VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
 
-# create file if it doesnt exist
-if [ ! -f "$VSCODE_SETTINGS" ]; then
+# create file if it doesnt exist, or write if empty
+if [ ! -f "$VSCODE_SETTINGS" ] || [ ! -s "$VSCODE_SETTINGS" ]; then
     mkdir -p "$(dirname "$VSCODE_SETTINGS")"
     echo "{}" > "$VSCODE_SETTINGS"
 fi
 
-# accessible? 
+# accessible and not empty?
 if [ ! -r "$VSCODE_SETTINGS" ]; then
     echo "VSCode's settings file could not be found or accessed."
     exit 1
