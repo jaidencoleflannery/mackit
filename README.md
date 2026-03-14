@@ -54,8 +54,11 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | `` cmd+] `` | Cycle right |
 | `` cmd+b `` | Toggle file explorer |
 | `` cmd+` `` | Toggle terminal |
-- **tab** `-acceptSelectedSuggestion` - removes tab as the key to accept an autocomplete suggestion.
-- **tab** `-editor.action.inlineSuggest.commit` - removes Tab as the key to accept an inline suggestion.
+
+| Keybind | Command | Description |
+|---------|---------|-------------|
+| **tab** | `-acceptSelectedSuggestion` | Removes tab as the key to accept an autocomplete suggestion. |
+| **tab** `-editor.action.inlineSuggest.commit` - removes Tab as the key to accept an inline suggestion.
 - **cmd+t** `-workbench.action.showAllSymbols` - unbinds the default <Go to Symbol> command for cmd+t.
 - **cmd+t** `workbench.action.terminal.split` - splits the current terminal pane.
 - **cmd+t** `explorer.newFile` `when: explorerViewletFocus` - creates a new file when the Explorer sidebar is focused.
@@ -67,6 +70,38 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 - **cmd+b** `workbench.explorer.fileView.focus` `when: activeViewlet != explorer` - opens and focuses the Explorer sidebar when it isn't already active.
 - **cmd+b** `workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus` - returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back.
 - **cmd+shift+t** `explorer.newFolder` `when: explorerViewletFocus` - creates a new folder when the explorer sidebar is focused.
+
+### Preferences
+**preferences.sh:**
+- **ApplePressAndHoldEnabled** `false` - disables the press and hold accent menu, allowing keys to repeat when held instead.
+- **KeyRepeat** `1` - sets the key repeat rate to the fastest possible (lower = faster).
+- **InitialKeyRepeat** `10` - sets the delay before key repeat kicks in (lower = shorter delay).
+- **com.apple.trackpad.scaling** `3.0` - sets trackpad tracking speed to very fast.
+- **Clicking** `true` - enables tap on the trackpad.
+- **autohide** `true` - dock automatically hides when not in use.
+- **autohide-delay** `0` - removes the delay before the dock toggles.
+- **autohide-time-modifier** `0.15` - sets the dock toggle animation duration to be faster.
+- **show-recents** `false` - hides the "recent applications" section from the dock.
+- **tilesize** `36` - sets dock icon size to 36px.
+- **AppleShowAllFiles** `true` - shows hidden files (dotfiles, etc.) in finder.
+- **AppleShowAllExtensions** `true` - always shows file extensions for all files.
+- **ShowPathbar** `true` - shows the path bar at the bottom of finder windows.
+- **ShowStatusBar** `true` - shows the status bar (item count, disk space) at the bottom of finder windows.
+- **FXDefaultSearchScope** `"SCcf"` - sets default finder search scope to the current folder instead of "this mac".
+- **FXPreferredViewStyle** `"Nlsv"` - sets default finder view to list view.
+- **DSDontWriteNetworkStores** `true` - prevents internal mac files from being created on network volumes.
+- **DSDontWriteUSBStores** `true` - prevents internal mac files from being created on usb drives.
+- **screencapture location** `"$HOME/Desktop"` - saves screenshots to the desktop.
+- **screencapture type** `"png"` - saves screenshots as png files.
+- **disable-shadow** `true` - removes the drop shadow from window screenshots.
+- **NSAutomaticQuoteSubstitutionEnabled** `false` - disables smart/curly quote substitution.
+- **NSAutomaticDashSubstitutionEnabled** `false` - disables automatic em dash substitution.
+- **NSAutomaticSpellingCorrectionEnabled** `false` - disables auto correct.
+- **NSAutomaticCapitalizationEnabled** `false` - disables automatic capitalization of the first word in a sentence.
+- **NSAutomaticPeriodSubstitutionEnabled** `false` - disables double space to period substitution.
+- **mru-spaces** `false` - disables automatic reordering of spaces based on most recent use.
+- **AppleSpacesSwitchOnActivate** `false` - prevents mac from switching to a space where an app is already open when you activate that app.
+- **Wi-Fi DNS** `1.1.1.1, 8.8.8.8` - sets dns servers to cloudflare and google for a more reliable resolution.
 
 ---
 
