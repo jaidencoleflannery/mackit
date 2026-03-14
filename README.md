@@ -46,7 +46,6 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **explorer.confirmDragAndDrop** | <details><summary>View</summary>`false`</details> | Drag and drop in the Explorer happen without a prompt. |
 
 ### VSCode Keybindings
-**vscode-keybindings.sh:**
 
 #### Overview:
 | Shortcut | Action |
@@ -59,7 +58,8 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | `` cmd+b `` | Toggle file explorer |
 | `` cmd+` `` | Toggle terminal |
 
-### Bindings:
+**vscode-keybindings.sh:**
+
 | Keybind | Command | Description |
 |---------|---------|-------------|
 | **tab** | <details><summary>View</summary>`-acceptSelectedSuggestion`</details> | Removes tab as the key to accept an autocomplete suggestion. |
