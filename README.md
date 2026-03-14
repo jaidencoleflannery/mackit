@@ -18,10 +18,10 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 
 ## Modules
 
-> **Note:** This project is a compilation of scripts, referred to as "modules".\
+> **Note:** This project is a compilation of scripts, referred to as "modules" -
 > Following sections focus on what changes each module makes.
 
-**vscode-settings:**\
+**vscode-settings:**
 - **editor.tabCompletion**: `"off"` - Tab key does not cycle through autocomplete suggestions.
 - **editor.formatOnType**: `false` - Code is not automatically formatted as you type.
 - **editor.formatOnPaste**: `false` - Pasted code is not automatically formatted.
