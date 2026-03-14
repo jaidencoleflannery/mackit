@@ -37,7 +37,7 @@ NEW_SETTINGS='{
     "editor.formatOnType": false,
     "editor.formatOnPaste": false,
     "editor.formatOnSave": false,
-    "editor.hover.enabled": true,
+    "editor.hover.enabled": "on",
     "security.workspace.trust.untrustedFiles": "open",
     "keyboard.dispatch": "keyCode",
     "git.confirmSync": false, 

@@ -1,6 +1,11 @@
 #!/bin/zsh
 
-echo -e "\n[ Mackit ] ~ Configuring VSCode settings."
+echo -e "\n[ Mackit ] ~ Configuring VSCode keybindings."
+
+if ! command -v jq &>/dev/null; then
+    echo "The command line tool \'jq\' is required to run vscode-keybindings.sh."
+    exit 1
+fi
 
 # make sure dependency exists
 if ! command -v jq &>/dev/null; then
@@ -14,10 +19,24 @@ CHILD=$1
 # path to keybindings
 VSCODE_KEYBINDINGS="$HOME/Library/Application Support/Code/User/keybindings.json"
 
-# create file if it doesn't exist
-if [ ! -f "$VSCODE_KEYBINDINGS" ]; then
-    mkdir -p "$(dirname "$VSCODE_KEYBINDINGS")" || exit 1
-    echo "[]" > "$VSCODE_KEYBINDINGS" || exit 1
+# create file if it doesnt exist, or write if empty
+if [ ! -f "$VSCODE_KEYBINDINGS" ] || [ ! -s "$VSCODE_KEYBINDINGS" ]; then
+    mkdir -p "$(dirname "$VSCODE_KEYBINDINGS")"
+    echo "{}" > "$VSCODE_KEYBINDINGS"
+fi
+
+# accessible and not empty?
+if [ ! -r "$VSCODE_KEYBINDINGS" ]; then
+    echo "VSCode's keybindings file could not be found or accessed."
+    exit 1
+fi
+if [ ! -w "$VSCODE_KEYBINDINGS" ]; then
+    echo "VSCode's keybindings file could not be written to."
+    exit 1
+fi
+if ! jq empty "$VSCODE_KEYBINDINGS" 2>/dev/null; then
+    echo "VSCode's keybindings file's existing JSON is invalid, cannot append."
+    exit 1
 fi
 
 NEW_BINDINGS='[
@@ -48,8 +67,8 @@ cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak" || exit 1
 # merge (ensure there are no duplicates)
 jq --argjson new "$NEW_BINDINGS" '
     ($new + .) | unique_by([.key, .command, .when])
-' "$VSCODE_KEYBINDINGS" > /tmp/settings_tmp.json \
-  && mv /tmp/settings_tmp.json "$VSCODE_KEYBINDINGS"
+' "$VSCODE_KEYBINDINGS" > /tmp/keybindings_tmp.json \
+  && mv /tmp/keybindings_tmp.json "$VSCODE_KEYBINDINGS"
 
 if [ "$CHILD" != "true" ]; then
     echo -e "\n[ Mackit - VSCode Keybindings ]\n~ This script optimized your MacOS VSCode Keybindings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
