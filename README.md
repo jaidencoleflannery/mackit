@@ -8,7 +8,7 @@ Optimize the macOS operating system for software development efficiency.
 
 **Option 1 - Run directly:**
 ```zsh
-curl -s https://github.com/jaidencoleflannery/mackit/blob/master/auto-configuration.sh | zsh
+curl -s https://raw.githubusercontent.com/jaidencoleflannery/mackit/master/auto-configuration.sh | zsh
 ```
 
 **Option 2 - Clone and run locally:**
