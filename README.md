@@ -16,6 +16,8 @@ curl -s https://raw.githubusercontent.com/jaidencoleflannery/mackit/master/auto-
 git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod +x auto-configuration.sh && ./auto-configuration.sh
 ```
 
+---
+
 ## Modules
 
 > **Note:** This project is a compilation of scripts, referred to as "modules" -
@@ -43,14 +45,15 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 
 ### VSCode Keybindings
 **vscode-keybindings.sh:**
-> Basics:\
-> cmd+t = New.\
-> cmd+shift+t = New folder.\
-> cmd+w = Close.\
-> cmd+[ = Cycle left.\
-> cmd+] = Cycle right.\
-> cmd+b = Toggle file explorer.\
-> cmd+` = Toggle terminal.\
+| Shortcut | Action |
+|----------|--------|
+| `cmd+t` | New file |
+| `cmd+shift+t` | New folder |
+| `cmd+w` | Close |
+| `cmd+[` | Cycle left |
+| `cmd+]` | Cycle right |
+| `cmd+b` | Toggle file explorer |
+| `cmd+\`` | Toggle terminal |
 - **tab** `-acceptSelectedSuggestion` - Removes Tab as the key to accept an autocomplete suggestion.
 - **tab** `-editor.action.inlineSuggest.commit` - Removes Tab as the key to accept an inline suggestion.
 - **cmd+t** `-workbench.action.showAllSymbols` - Unbinds the default <Go to Symbol> command for cmd+t.
