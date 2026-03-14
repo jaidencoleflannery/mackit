@@ -1,5 +1,6 @@
 # mackit
 Optimize the macOS operating system for software development efficiency.
+Note: the quick start script expects you to have VSCode installed. VSCode specific scripts will fail if you do not.
 
 ## Quick Start
 
