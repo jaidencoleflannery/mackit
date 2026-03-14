@@ -21,7 +21,7 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 > **Note:** This project is a compilation of scripts, referred to as "modules" -
 > following sections focus on what changes each module makes.
 
-### VSCode settings.json Basic Setup
+### VSCode Settings
 **vscode-settings.sh:**
 - **editor.tabCompletion**: `"off"` - Tab key does not cycle through autocomplete suggestions.
 - **editor.formatOnType**: `false` - Code is not automatically formatted as you type.
@@ -41,16 +41,16 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 - **editor.codeActionsOnSave** `source.fixAll.eslint: "never"` - ESLint auto fix disabled on save.
 - **explorer.confirmDragAndDrop**: `false` - Drag and drop in the Explorer happen without a prompt.
 
-### VSCode keybindings.json Basic Setup
+### VSCode Keybindings
 **vscode-keybindings.sh:**
 > Basics:\
-> cmd+t = New.
-> cmd+shift+t = New folder.
-> cmd+w = Close.
-> cmd+[ = Cycle left.
-> cmd+] = Cycle right.
-> cmd+b = Toggle file explorer.
-> cmd+` = Toggle terminal.
+> cmd+t = New.\
+> cmd+shift+t = New folder.\
+> cmd+w = Close.\
+> cmd+[ = Cycle left.\
+> cmd+] = Cycle right.\
+> cmd+b = Toggle file explorer.\
+> cmd+` = Toggle terminal.\
 - **tab** `-acceptSelectedSuggestion` - Removes Tab as the key to accept an autocomplete suggestion.
 - **tab** `-editor.action.inlineSuggest.commit` - Removes Tab as the key to accept an inline suggestion.
 - **cmd+t** `-workbench.action.showAllSymbols` - Unbinds the default <Go to Symbol> command for cmd+t.
