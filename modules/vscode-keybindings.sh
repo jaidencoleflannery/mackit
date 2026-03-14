@@ -2,7 +2,6 @@
 
 echo -e "\n[ Mackit ] ~ Configuring VSCode keybindings."
 
-
 # make sure dependency exists
 if ! command -v jq &>/dev/null; then
     echo "The command line tool \'jq\' is required to run vscode-keybindings.sh."
