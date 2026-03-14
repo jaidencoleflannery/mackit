@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+echo -e "\n[ Mackit ] ~ Configuring VSCode settings."
+
 if ! command -v jq &>/dev/null; then
     echo "The command line tool \'jq\' is required to run vscode-settings.sh."
     exit 1

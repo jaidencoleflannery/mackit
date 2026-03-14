@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+echo -e "\n[ Mackit ] ~ Installing core packages."
+
 # if ran from a parent, do not print
 CHILD=$1
 

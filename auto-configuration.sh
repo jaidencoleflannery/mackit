@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+echo -e "\n [ Mackit ] ~ Initializing."
+
 BASE_URL="https://raw.githubusercontent.com/jaidencoleflannery/mackit/master/modules"
 
 source <(curl -s "$BASE_URL/vscode-keybindings.sh") true
