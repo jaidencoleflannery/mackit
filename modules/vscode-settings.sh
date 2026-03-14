@@ -18,6 +18,20 @@ if [ ! -f "$VSCODE_SETTINGS" ]; then
     echo "{}" > "$VSCODE_SETTINGS"
 fi
 
+# accessible? 
+if [ ! -r "$VSCODE_SETTINGS" ]; then
+    echo "VSCode's settings file could not be found or accessed."
+    exit 1
+fi
+if [ ! -w "$VSCODE_SETTINGS" ]; then
+    echo "VSCode's settings file could not be written to."
+    exit 1
+fi
+if ! jq empty "$VSCODE_SETTINGS" 2>/dev/null; then
+    echo "VSCode's settings file's existing JSON is invalid, cannot append."
+    exit 1
+fi
+
 NEW_SETTINGS='{
     "editor.tabCompletion": "off",
     "editor.formatOnType": false,
@@ -49,11 +63,24 @@ if grep -qE '^\s*//|^\s*/\*' "$VSCODE_SETTINGS"; then
 fi
 
 # backup (this overwrites on each run)
-cp "$VSCODE_SETTINGS" "$VSCODE_SETTINGS.bak"
+cp "$VSCODE_SETTINGS" "$VSCODE_SETTINGS.bak" || { 
+    echo -e "Failed to create settings backup."; 
+    exit 1; 
+}
 
 # merge (ensure there are no duplicates)
-jq --argjson new "$NEW_SETTINGS" '. * $new' "$VSCODE_SETTINGS" > /tmp/settings_tmp.json \
-  && mv /tmp/settings_tmp.json "$VSCODE_SETTINGS"
+if ! jq --argjson new "$NEW_SETTINGS" '. * $new' "$VSCODE_SETTINGS" > /tmp/settings_tmp.json 2>/tmp/settings_jq_err.json; then
+  echo "\'jq\' failed to merge settings. Details:"
+  cat /tmp/settings_jq_err.json
+  exit 1
+fi
+  
+if ! mv /tmp/settings_tmp.json "$VSCODE_SETTINGS"; then
+    echo "Failed to merge settings to \'$VSCODE_SETTINGS'."
+    exit 1
+fi
+
+echo "Settings written successfully to $VSCODE_SETTINGS"
 
 if [ "$CHILD" != "true" ]; then
     echo -e "\n[ Mackit - VSCode Settings ]\n~ This script optimized your MacOS VSCode Settings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"

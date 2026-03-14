@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo -e "\n [ Mackit ] ~ Initializing."
+echo -e "\n[ Mackit ] ~ Initializing."
 
 BASE_URL="https://raw.githubusercontent.com/jaidencoleflannery/mackit/master/modules"
 
