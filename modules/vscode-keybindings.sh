@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # make sure dependency exists
-if [command -v jq == null]
+if ! command -v jq &>/dev/null; then
     echo "The command line tool "jq" is required to run vscode-keybindings.sh."
     exit 1
 fi
