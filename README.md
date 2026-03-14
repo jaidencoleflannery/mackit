@@ -58,18 +58,18 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | Keybind | Command | Description |
 |---------|---------|-------------|
 | **tab** | `-acceptSelectedSuggestion` | <details><summary>Click to view.</summary>Removes tab as the key to accept an autocomplete suggestion.</details> |
-**tab** `-editor.action.inlineSuggest.commit` - removes Tab as the key to accept an inline suggestion.
-- **cmd+t** `-workbench.action.showAllSymbols` - unbinds the default <Go to Symbol> command for cmd+t.
-- **cmd+t** `workbench.action.terminal.split` - splits the current terminal pane.
-- **cmd+t** `explorer.newFile` `when: explorerViewletFocus` - creates a new file when the Explorer sidebar is focused.
-- **cmd+w** `workbench.action.terminal.kill` `when: terminalFocus` - kills the active terminal when a terminal is focused.
-- **cmd+[** `workbench.action.terminal.focusPreviousPane` `when: terminalFocus` - focuses the previous terminal pane when in the terminal.
-- **cmd+]** `workbench.action.terminal.focusNextPane` `when: terminalFocus` - focuses the next terminal pane when in the terminal.
-- **cmd+[** `workbench.action.previousEditor` `when: editorFocus` - navigates to the previous editor tab when in the editor.
-- **cmd+]** `workbench.action.nextEditor` `when: editorFocus` - navigates to the next editor tab when in the editor.
-- **cmd+b** `workbench.explorer.fileView.focus` `when: activeViewlet != explorer` - opens and focuses the Explorer sidebar when it isn't already active.
-- **cmd+b** `workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus` - returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back.
-- **cmd+shift+t** `explorer.newFolder` `when: explorerViewletFocus` - creates a new folder when the explorer sidebar is focused.
+| **tab** | `-editor.action.inlineSuggest.commit` | <details><summary>Click to view.</summary>Removes Tab as the key to accept an inline suggestion.</details> |
+| **cmd+t** | `-workbench.action.showAllSymbols` | <details><summary>Click to view.</summary>Unbinds the default Go to Symbol command for cmd+t.</details> |
+| **cmd+t** | `workbench.action.terminal.split` | <details><summary>Click to view.</summary>Splits the current terminal pane.</details> |
+| **cmd+t** | `explorer.newFile` `when: explorerViewletFocus` | <details><summary>Click to view.</summary>Creates a new file when the Explorer sidebar is focused.</details> |
+| **cmd+w** | `workbench.action.terminal.kill` `when: terminalFocus` | <details><summary>Click to view.</summary>Kills the active terminal when a terminal is focused.</details> |
+| **cmd+[** | `workbench.action.terminal.focusPreviousPane` `when: terminalFocus` | <details><summary>Click to view.</summary>Focuses the previous terminal pane when in the terminal.</details> |
+| **cmd+]** | `workbench.action.terminal.focusNextPane` `when: terminalFocus` | <details><summary>Click to view.</summary>Focuses the next terminal pane when in the terminal.</details> |
+| **cmd+[** | `workbench.action.previousEditor` `when: editorFocus` | <details><summary>Click to view.</summary>Navigates to the previous editor tab when in the editor.</details> |
+| **cmd+]** | `workbench.action.nextEditor` `when: editorFocus` | <details><summary>Click to view.</summary>Navigates to the next editor tab when in the editor.</details> |
+| **cmd+b** | `workbench.explorer.fileView.focus` `when: activeViewlet != explorer` | <details><summary>Click to view.</summary>Opens and focuses the Explorer sidebar when it isn't already active.</details> |
+| **cmd+b** | `workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus` | <details><summary>Click to view.</summary>Returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back.</details> |
+| **cmd+shift+t** | `explorer.newFolder` `when: explorerViewletFocus` | <details><summary>Click to view.</summary>Creates a new folder when the explorer sidebar is focused.</details> |
 
 ### Preferences
 **preferences.sh:**
