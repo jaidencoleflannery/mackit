@@ -2,7 +2,7 @@
 
 # make sure dependency exists
 if ! command -v jq &>/dev/null; then
-    echo "The command line tool "jq" is required to run vscode-keybindings.sh."
+    echo "The command line tool \'jq\' is required to run vscode-keybindings.sh."
     exit 1
 fi
 
@@ -14,7 +14,8 @@ VSCODE_KEYBINDINGS="$HOME/Library/Application Support/Code/User/keybindings.json
 
 # create file if it doesn't exist
 if [ ! -f "$VSCODE_KEYBINDINGS" ]; then
-    echo "[]" > "$VSCODE_KEYBINDINGS"
+    mkdir -p "$(dirname "$VSCODE_KEYBINDINGS")" || exit 1
+    echo "[]" > "$VSCODE_KEYBINDINGS" || exit 1
 fi
 
 NEW_BINDINGS='[
@@ -40,14 +41,14 @@ if grep -qE '^\s*//|^\s*/\*' "$VSCODE_KEYBINDINGS"; then
 fi
 
 # backup (this overwrites the previous overwrite) 
-cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak"
+cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak" || exit 1
 
 # merge (ensure there are no duplicates)
 jq --argjson new "$NEW_BINDINGS" '
-    ($new + .) | unique_by({ .key, .command, .when })
+    ($new + .) | unique_by([.key, .command, .when])
 ' "$VSCODE_KEYBINDINGS" > /tmp/settings_tmp.json \
   && mv /tmp/settings_tmp.json "$VSCODE_KEYBINDINGS"
 
-if [ "$CHILD" != true ]; then
-    echo "\n[ Mackit - VSCode Keybindings ]\n~ This script optimized your MacOS VSCode Keybindings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
+if [ "$CHILD" != "true" ]; then
+    echo -e "\n[ Mackit - VSCode Keybindings ]\n~ This script optimized your MacOS VSCode Keybindings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
 fi
