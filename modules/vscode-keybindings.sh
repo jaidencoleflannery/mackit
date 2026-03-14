@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo -e "\n[ Mackit ] ~ Configuring VSCode keybindings."
+echo -e "[ Mackit ] ~ Configuring VSCode keybindings."
 
 # make sure dependency exists
 if ! command -v jq &>/dev/null; then
@@ -78,8 +78,6 @@ if ! echo "$EXISTING" | jq --slurpfile new /tmp/new_keybindings.json \
 fi
 
 mv /tmp/keybindings_tmp.json "$VSCODE_KEYBINDINGS"
-
-echo "Keybindings written successfully to $VSCODE_KEYBINDINGS"
 
 if [ "$CHILD" != "true" ]; then
     echo -e "\n[ Mackit - VSCode Keybindings ]\n~ This script optimized your MacOS VSCode Keybindings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"

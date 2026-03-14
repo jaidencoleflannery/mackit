@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-echo -e "\n[ Mackit ] ~ Configuring VSCode settings."
+echo -e "[ Mackit ] ~ Configuring VSCode settings."
 
 if ! command -v jq &>/dev/null; then
     echo "The command line tool \'jq\' is required to run vscode-settings.sh."
@@ -79,8 +79,6 @@ if ! mv /tmp/settings_tmp.json "$VSCODE_SETTINGS"; then
     echo "Failed to merge settings to \'$VSCODE_SETTINGS'."
     return 1
 fi
-
-echo "Settings written successfully to $VSCODE_SETTINGS"
 
 if [ "$CHILD" != "true" ]; then
     echo -e "\n[ Mackit - VSCode Settings ]\n~ This script optimized your MacOS VSCode Settings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
