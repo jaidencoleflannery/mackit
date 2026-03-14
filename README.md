@@ -45,6 +45,8 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **editor.codeActionsOnSave** | `source.fixAll.eslint: "never"` | ESLint auto fix disabled on save. |
 | **explorer.confirmDragAndDrop** | `false` | Drag and drop in the Explorer happen without a prompt. |
 
+---
+
 ### VSCode Keybindings
 
 #### Overview:
@@ -75,6 +77,8 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **cmd+b** | <details><summary>View</summary>`workbench.explorer.fileView.focus` `when: activeViewlet != explorer`</details> | Opens and focuses the Explorer sidebar when it isn't already active. |
 | **cmd+b** | <details><summary>View</summary>`workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus`</details> | Returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back. |
 | **cmd+shift+t** | <details><summary>View</summary>`explorer.newFolder` `when: explorerViewletFocus`</details> | Creates a new folder when the explorer sidebar is focused. |
+
+---
 
 ### Preferences
 **preferences.sh:**
@@ -109,6 +113,8 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **mru-spaces** | `false` | Disables automatic reordering of spaces based on most recent use. |
 | **AppleSpacesSwitchOnActivate** | `false` | Prevents Mac from switching to a space where an app is already open when you activate that app. |
 | **Wi-Fi DNS** | `1.1.1.1, 8.8.8.8` | Sets DNS servers to Cloudflare and Google for more reliable resolution. |
+
+---
 
 ### Packages
 **packages.sh:**
