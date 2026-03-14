@@ -65,9 +65,12 @@ cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak" || {
 # if file is an empty object, it should be an empty array
 EXISTING=$(jq 'if type == "object" then [] else . end' "$VSCODE_KEYBINDINGS")
 
+# our json block has to be stored so it can be propery read
+echo "$NEW_KEYBINDINGS" > /tmp/new_keybindings.json
+
 # merge (ensure there are no duplicates)
 if ! echo "$EXISTING" | jq --slurpfile new /tmp/new_keybindings.json \
-    '(. * $new[0]) | unique_by(.key + (.command // ""))' \
+    '. + $new[0] | unique_by(.key + (.command // ""))' \
     > /tmp/keybindings_tmp.json 2>/tmp/keybindings_jq_err.json; then
         echo "\'jq\' failed to merge keybindings. Details:"
         cat /tmp/keybindings_jq_err.json
