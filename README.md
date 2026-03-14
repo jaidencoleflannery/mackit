@@ -50,13 +50,13 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 #### Overview:
 | Shortcut | Action |
 |----------|--------|
-| `` cmd+t `` | New file |
-| `` cmd+shift+t `` | New folder |
-| `` cmd+w `` | Close |
-| `` cmd+[ `` | Cycle left |
-| `` cmd+] `` | Cycle right |
-| `` cmd+b `` | Toggle file explorer |
-| `` cmd+` `` | Toggle terminal |
+| **cmd+t** | `` New file `` |
+| **cmd+shift+t** | `` New folder `` |
+| **cmd+w** | `` Close `` |
+| **cmd+[** | `` Cycle left `` |
+| **cmd+]** | `` Cycle right `` |
+| **cmd+b** | `` Toggle file explorer `` |
+| **cmd+`** | `` Toggle terminal `` |
 
 **vscode-keybindings.sh:**
 
