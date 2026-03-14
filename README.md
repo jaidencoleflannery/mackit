@@ -54,7 +54,7 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | `` cmd+] `` | Cycle right |
 | `` cmd+b `` | Toggle file explorer |
 | `` cmd+` `` | Toggle terminal |
-- **tab** `-acceptSelectedSuggestion` - removes Tab as the key to accept an autocomplete suggestion.
+- **tab** `-acceptSelectedSuggestion` - removes tab as the key to accept an autocomplete suggestion.
 - **tab** `-editor.action.inlineSuggest.commit` - removes Tab as the key to accept an inline suggestion.
 - **cmd+t** `-workbench.action.showAllSymbols` - unbinds the default <Go to Symbol> command for cmd+t.
 - **cmd+t** `workbench.action.terminal.split` - splits the current terminal pane.
