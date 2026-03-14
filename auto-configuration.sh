@@ -45,7 +45,8 @@ defaults write -g AppleSpacesSwitchOnActivate -bool false
 # dns
 sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 8.8.8.8
 
-# required to run to actually enable this stuff 
-killall Dock Finder SystemUIServer
+# confirmation and such
+echo "\n[ Mackit Core Config ]\n~ This script optimized your MacOS configuration for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
 
-echo "\n[ Mac Settings Changed ]\nThis script optimized your MacOS configuration for efficiency.\nIf you found this useful, please leave a start on the project @ "
+# required to run to actually enable this stuff 
+killall Dock Finder SystemUIServer cfprefsd
