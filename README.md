@@ -27,23 +27,23 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 **vscode-settings.sh:**
 | Setting | Value | Description |
 |---------|-------|-------------|
-| **editor.tabCompletion** | <details><summary>View</summary>`"off"`</details> | Tab key does not cycle through autocomplete suggestions. |
-| **editor.formatOnType** | <details><summary>View</summary>`false`</details> | Code is not automatically formatted as you type. |
-| **editor.formatOnPaste** | <details><summary>View</summary>`false`</details> | Pasted code is not automatically formatted. |
-| **editor.formatOnSave** | <details><summary>View</summary>`false`</details> | File is not automatically formatted on save. |
-| **editor.hover.enabled** | <details><summary>View</summary>`"on"`</details> | Hovering over symbols shows tooltips. |
-| **security.workspace.trust.untrustedFiles** | <details><summary>View</summary>`"open"`</details> | Files in untrusted workspaces are opened without prompting. |
-| **keyboard.dispatch** | <details><summary>View</summary>`"keyCode"`</details> | Key events are dispatched by key code rather than character, for compatibility with unorthodox layouts. |
-| **git.confirmSync** | <details><summary>View</summary>`false`</details> | Git push/pull sync runs without a confirmation dialog. |
-| **workbench.startupEditor** | <details><summary>View</summary>`"none"`</details> | No popup is opened on startup. |
-| **git.ignoreRebaseWarning** | <details><summary>View</summary>`true`</details> | No warning shown when a rebase is in progress. |
-| **workbench.activityBar.location** | <details><summary>View</summary>`"top"`</details> | The activity bar is placed at the top of the sidebar instead of the side. |
-| **files.exclude** | <details><summary>View</summary>`**/.git: false`</details> | Overrides the default which hides `.git` folders, so they're visible in the Explorer. |
-| **editor.acceptSuggestionOnEnter** | <details><summary>View</summary>`"off"`</details> | Enter key does not accept an autocomplete suggestion. |
-| **git.openRepositoryInParentFolders** | <details><summary>View</summary>`"never"`</details> | VSCode never detects and opens git repos found in parent directories. |
-| **editor.codeActionsOnSave** | <details><summary>View</summary>`source.fixAll: "never"`</details> | All auto fix code actions are disabled on save. |
-| **editor.codeActionsOnSave** | <details><summary>View</summary>`source.fixAll.eslint: "never"`</details> | ESLint auto fix disabled on save. |
-| **explorer.confirmDragAndDrop** | <details><summary>View</summary>`false`</details> | Drag and drop in the Explorer happen without a prompt. |
+| **editor.tabCompletion** | `"off"` | Tab key does not cycle through autocomplete suggestions. |
+| **editor.formatOnType** | `false` | Code is not automatically formatted as you type. |
+| **editor.formatOnPaste** | `false` | Pasted code is not automatically formatted. |
+| **editor.formatOnSave** | `false` | File is not automatically formatted on save. |
+| **editor.hover.enabled** | `"on"` | Hovering over symbols shows tooltips. |
+| **security.workspace.trust.untrustedFiles** | `"open"` | Files in untrusted workspaces are opened without prompting. |
+| **keyboard.dispatch** | `"keyCode"` | Key events are dispatched by key code rather than character, for compatibility with unorthodox layouts. |
+| **git.confirmSync** | `false` | Git push/pull sync runs without a confirmation dialog. |
+| **workbench.startupEditor** | `"none"` | No popup is opened on startup. |
+| **git.ignoreRebaseWarning** | `true` | No warning shown when a rebase is in progress. |
+| **workbench.activityBar.location** | `"top"` | The activity bar is placed at the top of the sidebar instead of the side. |
+| **files.exclude** | `**/.git: false` | Overrides the default which hides `.git` folders, so they're visible in the Explorer. |
+| **editor.acceptSuggestionOnEnter** | `"off"` | Enter key does not accept an autocomplete suggestion. |
+| **git.openRepositoryInParentFolders** | `"never"` | VSCode never detects and opens git repos found in parent directories. |
+| **editor.codeActionsOnSave** | `source.fixAll: "never"` | All auto fix code actions are disabled on save. |
+| **editor.codeActionsOnSave** | `source.fixAll.eslint: "never"` | ESLint auto fix disabled on save. |
+| **explorer.confirmDragAndDrop** | `false` | Drag and drop in the Explorer happen without a prompt. |
 
 ### VSCode Keybindings
 
