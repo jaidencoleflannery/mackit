@@ -1,29 +1,29 @@
 #!/bin/zsh
 
-echo -e "[ Mackit ] ~ Configuring VSCode settings."
+echo -e "[[ Mackit ]] ~ Configuring VSCode settings."
 
 if ! command -v jq &>/dev/null; then
     echo "The command line tool \'jq\' is required to run vscode-settings.sh."
     return 1
 fi
 
-# if ran from parent, do not print
+# if ran from parent, do not print tagline
 CHILD=$1
 
 VSCODE_SETTINGS="$HOME/Library/Application Support/Code/User/settings.json"
 
 # create file if it doesnt exist, or write if empty
-if [ ! -f "$VSCODE_SETTINGS" ] || [ ! -s "$VSCODE_SETTINGS" ]; then
+if [[ ! -f "$VSCODE_SETTINGS" ]] || [[ ! -s "$VSCODE_SETTINGS" ]]; then
     mkdir -p "$(dirname "$VSCODE_SETTINGS")"
     echo "{}" > "$VSCODE_SETTINGS"
 fi
 
 # accessible and not empty?
-if [ ! -r "$VSCODE_SETTINGS" ]; then
-    echo "VSCode's settings file could not be found or accessed."
+if [[ ! -r "$VSCODE_SETTINGS" ]]; then
+    echo "VSCode's settings file could not be found or accessed." >&2
     return 1
 fi
-if [ ! -w "$VSCODE_SETTINGS" ]; then
+if [[ ! -w "$VSCODE_SETTINGS" ]]; then
     echo "VSCode's settings file could not be written to."
     return 1
 fi
@@ -80,6 +80,6 @@ if ! mv /tmp/settings_tmp.json "$VSCODE_SETTINGS"; then
     return 1
 fi
 
-if [ "$CHILD" != "true" ]; then
-    echo -e "\n[ Mackit - VSCode Settings ]\n~ This script optimized your MacOS VSCode Settings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
+if [[ "$CHILD" != "true" ]]; then
+    echo -e "\n[[ Mackit - VSCode Settings ]]\n~ This script optimized your MacOS VSCode Settings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
 fi
