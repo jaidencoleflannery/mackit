@@ -94,6 +94,7 @@ NEW_SETTINGS='{
     "explorer.confirmDragAndDrop": false
 }'
 
+
 # check if JSONC is being used
 if grep -qE '^\s*//|/\*|\*/' "$VSCODE_SETTINGS"; then
     echo "JSONC detected, settings could not be written.";
@@ -142,4 +143,8 @@ if ! mv /tmp/settings_tmp.json "$VSCODE_SETTINGS"
     } else {
         echo "Successfully wrote to VSCode's settings.json.";
     }
+fi
+
+if [[ $CHILD == false ]]; then
+    echo -e "\n[ Mackit - VSCode Settings ]\n~ This script optimized your MacOS Settings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
 fi

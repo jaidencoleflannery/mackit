@@ -1,37 +1,65 @@
 #!/bin/zsh
 
-echo -e "[ Mackit ] ~ Configuring VSCode keybindings."
+echo -e "Configuring VSCode keybindings."
 
-# make sure dependency exists
-if ! command -v jq &>/dev/null; then
-    echo -e "The command line tool \'jq\' is required to run vscode-keybindings.sh."
-    return 1
-fi
+# flag for if script is a subscript
+CHILD=$1;
 
-# if ran from a parent, do not print
-CHILD=$1
-
-# path to keybindings
 VSCODE_KEYBINDINGS="$HOME/Library/Application Support/Code/User/keybindings.json"
 
+if ! command -v jq &>/dev/null 
+    then {
+        echo -e "The command line tool 'jq' is required to run vscode-vim-keybindings.sh";
+        if [[ $CHILD == true ]]
+            then {
+                return 1;
+            }
+        fi
+        exit 1;
+    }
+fi
+
 # create file if it doesnt exist, or write if empty
-if [ ! -f "$VSCODE_KEYBINDINGS" ] || [ ! -s "$VSCODE_KEYBINDINGS" ]; then
-    mkdir -p "$(dirname "$VSCODE_KEYBINDINGS")"
-    echo "{}" > "$VSCODE_KEYBINDINGS"
+if [[ ! -f "$VSCODE_KEYBINDINGS" ]] || [[ ! -s "$VSCODE_KEYBINDINGS" ]]
+    then {
+        mkdir -p "$(dirname "$VSCODE_KEYBINDINGS")";
+        echo "{}" > "$VSCODE_KEYBINDINGS";
+    }
 fi
 
 # accessible and not empty?
-if [ ! -r "$VSCODE_KEYBINDINGS" ]; then
-    echo "VSCode's keybindings file could not be found or accessed."
-    return 1
+if [[ ! -r "$VSCODE_KEYBINDINGS" ]]
+    then {
+        echo "VSCode's keybindings file could not be found or accessed." >&2;
+        if [[ $CHILD == true ]]; 
+            then {
+                return 1;
+            }
+        fi
+        exit 1;
+    }
 fi
-if [ ! -w "$VSCODE_KEYBINDINGS" ]; then
-    echo "VSCode's keybindings file could not be written to."
-    return 1
+if [[ ! -w "$VSCODE_KEYBINDINGS" ]]
+    then {
+        echo "VSCode's keybindings file could not be written to.";
+        if [[ $CHILD == true ]]
+            then {
+                return 1;
+            }
+        fi
+        exit 1;
+    }
 fi
-if ! jq empty "$VSCODE_KEYBINDINGS" 2>/dev/null; then
-    echo "VSCode's keybindings file's existing JSON is invalid, cannot append."
-    return 1
+if ! jq empty "$VSCODE_KEYBINDINGS" 2>/dev/null
+    then {
+        echo "VSCode's keybindings file's existing JSON is invalid, cannot append.";
+        if [[ $CHILD == true ]] 
+            then {
+                return 1;
+            }
+        fi
+        exit 1;
+    }
 fi
 
 NEW_KEYBINDINGS='[
@@ -51,15 +79,25 @@ NEW_KEYBINDINGS='[
 ]'
 
 # check if JSONC is being used
-if grep -qE '^\s*//|^\s*/\*' "$VSCODE_KEYBINDINGS"; then
-    echo "JSONC detected, keybindings could not be written."
-    return 1
+if grep -qE '^\s*//|/\*|\*/' "$VSCODE_KEYBINDINGS"; then
+    echo "JSONC detected, keybindings could not be written.";
+    if [[ $CHILD == true ]]
+        then {
+            return 1;
+        }
+    fi
+    exit 1;
 fi
 
-# backup (this overwrites the previous overwrite) 
+# backup (this overwrites on each run)
 cp "$VSCODE_KEYBINDINGS" "$VSCODE_KEYBINDINGS.bak" || {
-    echo -e "Failed to create keybindings backup."; 
-    return 1; 
+    echo -e "Failed to create keybindings backup.";
+    if [[ $CHILD == true ]]
+        then {
+            return 1;
+        }
+    fi
+    exit 1;
 }
 
 # if file is an empty object, it should be an empty array
@@ -74,11 +112,28 @@ if ! echo "$EXISTING" | jq --slurpfile new /tmp/new_keybindings.json \
     > /tmp/keybindings_tmp.json 2>/tmp/keybindings_jq_err.json; then
         echo "\'jq\' failed to merge keybindings. Details:"
         cat /tmp/keybindings_jq_err.json
-    return 1
+    if [[ $CHILD == true ]]
+            then { 
+                return 1;
+            }
+    fi
+    exit 1; 
 fi
 
-mv /tmp/keybindings_tmp.json "$VSCODE_KEYBINDINGS"
+if ! mv /tmp/keybindings_tmp.json "$VSCODE_KEYBINDINGS"
+    then {
+        echo "Failed to perform replacement of keybindings.";
+        if [[ $CHILD == true ]]
+            then {
+                return 1;
+            }
+        fi
+        exit 1;
+    } else {
+        echo "Successfully wrote to VSCode's keybindings.json.";
+    }
+fi
 
-if [ "$CHILD" != "true" ]; then
+if [[ $CHILD == false ]]; then
     echo -e "\n[ Mackit - VSCode Keybindings ]\n~ This script optimized your MacOS VSCode Keybindings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
 fi

@@ -170,3 +170,7 @@ if ! mv /tmp/settings_tmp.json "$VSCODE_SETTINGS"
         echo "Successfully wrote to VSCode's settings.json.";
     }
 fi
+
+if [[ $CHILD == false ]]; then
+    echo -e "\n[ Mackit - VSCode Vim Settings ]\n~ This script optimized your MacOS VSCode Vim Settings for efficiency.\n~ If you found this useful, please leave a star on the project: https://github.com/jaidencoleflannery/mackit \n"
+fi
