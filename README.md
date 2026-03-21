@@ -42,7 +42,7 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **git.openRepositoryInParentFolders** | `"never"` | vscode never detects and opens git repos found in parent directories. |
 | **editor.codeActionsOnSave** | `source.fixAll: "never"` | all auto fix code actions are disabled on save. |
 | **editor.codeActionsOnSave** | `source.fixAll.eslint: "never"` | eslint auto fix disabled on save. |
-| **explorer.confirmDragAndDrop** | `false` | drag and drop in the Explorer happen without a prompt. |
+| **explorer.confirmDragAndDrop** | `false` | drag and drop in the explorer happen without a prompt. |
 
 ### vscode Keybindings
 #### general overview:
@@ -63,13 +63,13 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **tab** | <details><summary>View</summary>`-editor.action.inlineSuggest.commit`</details> | removes Tab as the key to accept an inline suggestion. |
 | **cmd+t** | <details><summary>View</summary>`-workbench.action.showAllSymbols`</details> | unbinds the default `go to symbol` command for cmd+t. |
 | **cmd+t** | <details><summary>View</summary>`workbench.action.terminal.split`</details> | splits the current terminal pane. |
-| **cmd+t** | <details><summary>View</summary>`explorer.newFile` `when: explorerViewletFocus`</details> | creates a new file when the Explorer sidebar is focused. |
+| **cmd+t** | <details><summary>View</summary>`explorer.newFile` `when: explorerViewletFocus`</details> | creates a new file when the explorer sidebar is focused. |
 | **cmd+w** | <details><summary>View</summary>`workbench.action.terminal.kill` `when: terminalFocus`</details> | kills the active terminal when a terminal is focused. |
 | **cmd+[** | <details><summary>View</summary>`workbench.action.terminal.focusPreviousPane` `when: terminalFocus`</details> | focuses the previous terminal pane when in the terminal. |
 | **cmd+]** | <details><summary>View</summary>`workbench.action.terminal.focusNextPane` `when: terminalFocus`</details> | focuses the next terminal pane when in the terminal. |
 | **cmd+[** | <details><summary>View</summary>`workbench.action.previousEditor` `when: editorFocus`</details> | navigates to the previous editor tab when in the editor. |
 | **cmd+]** | <details><summary>View</summary>`workbench.action.nextEditor` `when: editorFocus`</details> | navigates to the next editor tab when in the editor. |
-| **cmd+b** | <details><summary>View</summary>`workbench.explorer.fileView.focus` `when: activeViewlet != explorer`</details> | opens and focuses the Explorer sidebar when it isn't already active. |
+| **cmd+b** | <details><summary>View</summary>`workbench.explorer.fileView.focus` `when: activeViewlet != explorer`</details> | opens and focuses the explorer sidebar when it isn't already active. |
 | **cmd+b** | <details><summary>View</summary>`workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus`</details> | returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back. |
 | **cmd+shift+t** | <details><summary>View</summary>`explorer.newFolder` `when: explorerViewletFocus`</details> | creates a new folder when the explorer sidebar is focused. |
 
