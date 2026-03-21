@@ -1,136 +1,133 @@
 # mackit
-Optimize the macOS operating system for software development efficiency.
+optimize the macos operating system for software development.
 
-## Quick Start
+## quick start
 
-> **Warning:** Running the following commands executes all scripts in this repository. Please review the changes this project makes before running on your system.\
-> **Note:** the quick start script expects you to have VSCode installed. VSCode specific scripts will fail if you do not.
+> **warning:** running the following commands executes all scripts in this repository. please review the changes this project makes before running on your system.
 
-**Option 1 - Run directly:**
+**option 1: run directly:**
 ```zsh
 curl -s https://raw.githubusercontent.com/jaidencoleflannery/mackit/master/auto-configuration.sh | zsh
 ```
 
-**Option 2 - Clone and run locally:**
+**option 2: clone and run locally:**
 ```zsh
 git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod +x auto-configuration.sh && ./auto-configuration.sh
 ```
 
 ---
 
-## Modules
+## modules
 
-> **Note:** This project is a compilation of scripts, referred to as "modules" -
+> **note:** this project is a compilation of scripts, referred to as "modules" -
 > following sections focus on what changes each module makes.
 
-### VSCode Settings
+### vscode settings
 **vscode-settings.sh:**
-| Setting | Value | Description |
+| setting | value | description |
 |---------|-------|-------------|
-| **editor.tabCompletion** | `"off"` | Tab key does not cycle through autocomplete suggestions. |
-| **editor.formatOnType** | `false` | Code is not automatically formatted as you type. |
-| **editor.formatOnPaste** | `false` | Pasted code is not automatically formatted. |
-| **editor.formatOnSave** | `false` | File is not automatically formatted on save. |
-| **editor.hover.enabled** | `"on"` | Hovering over symbols shows tooltips. |
-| **security.workspace.trust.untrustedFiles** | `"open"` | Files in untrusted workspaces are opened without prompting. |
-| **keyboard.dispatch** | `"keyCode"` | Key events are dispatched by key code rather than character, for compatibility with unorthodox layouts. |
-| **git.confirmSync** | `false` | Git push/pull sync runs without a confirmation dialog. |
-| **workbench.startupEditor** | `"none"` | No popup is opened on startup. |
-| **git.ignoreRebaseWarning** | `true` | No warning shown when a rebase is in progress. |
-| **workbench.activityBar.location** | `"top"` | The activity bar is placed at the top of the sidebar instead of the side. |
-| **files.exclude** | `**/.git: false` | Overrides the default which hides `.git` folders, so they're visible in the Explorer. |
-| **editor.acceptSuggestionOnEnter** | `"off"` | Enter key does not accept an autocomplete suggestion. |
-| **git.openRepositoryInParentFolders** | `"never"` | VSCode never detects and opens git repos found in parent directories. |
-| **editor.codeActionsOnSave** | `source.fixAll: "never"` | All auto fix code actions are disabled on save. |
-| **editor.codeActionsOnSave** | `source.fixAll.eslint: "never"` | ESLint auto fix disabled on save. |
-| **explorer.confirmDragAndDrop** | `false` | Drag and drop in the Explorer happen without a prompt. |
+| **editor.tabCompletion** | `"off"` | tab key does not cycle through autocomplete suggestions. |
+| **editor.formatOnType** | `false` | code is not automatically formatted as you type. |
+| **editor.formatOnPaste** | `false` | pasted code is not automatically formatted. |
+| **editor.formatOnSave** | `false` | file is not automatically formatted on save. |
+| **editor.hover.enabled** | `"on"` | hovering over symbols shows tooltips. |
+| **security.workspace.trust.untrustedFiles** | `"open"` | files in untrusted workspaces are opened without prompting. |
+| **keyboard.dispatch** | `"keyCode"` | key events are dispatched by key code rather than character, for compatibility with unorthodox layouts. |
+| **git.confirmSync** | `false` | git push/pull sync runs without a confirmation dialog. |
+| **workbench.startupEditor** | `"none"` | no popup is opened on startup. |
+| **git.ignoreRebaseWarning** | `true` | no warning shown when a rebase is in progress. |
+| **workbench.activityBar.location** | `"top"` | the activity bar is placed at the top of the sidebar instead of the side. |
+| **files.exclude** | `**/.git: false` | overrides the default which hides `.git` folders, so they're visible in the explorer. |
+| **editor.acceptSuggestionOnEnter** | `"off"` | enter key does not accept an autocomplete suggestion. |
+| **git.openRepositoryInParentFolders** | `"never"` | vscode never detects and opens git repos found in parent directories. |
+| **editor.codeActionsOnSave** | `source.fixAll: "never"` | all auto fix code actions are disabled on save. |
+| **editor.codeActionsOnSave** | `source.fixAll.eslint: "never"` | eslint auto fix disabled on save. |
+| **explorer.confirmDragAndDrop** | `false` | drag and drop in the Explorer happen without a prompt. |
 
-### VSCode Keybindings
-
-#### Overview:
-| Shortcut | Action |
+### vscode Keybindings
+#### general overview:
+| shortcut | action |
 |----------|--------|
-| **cmd+t** | `` New file `` |
-| **cmd+shift+t** | `` New folder `` |
-| **cmd+w** | `` Close `` |
-| **cmd+[** | `` Cycle left `` |
-| **cmd+]** | `` Cycle right `` |
-| **cmd+b** | `` Toggle file explorer `` |
-| **cmd+`** | `` Toggle terminal `` |
+| **cmd+t** | `` new file `` |
+| **cmd+shift+t** | `` new folder `` |
+| **cmd+w** | `` close `` |
+| **cmd+[** | `` cycle left `` |
+| **cmd+]** | `` cycle right `` |
+| **cmd+b** | `` toggle file explorer `` |
+| **cmd+`** | `` toggle terminal `` |
 
 **vscode-keybindings.sh:**
-
-| Keybind | Command | Description |
+| keybind | command | description |
 |---------|---------|-------------|
-| **tab** | <details><summary>View</summary>`-acceptSelectedSuggestion`</details> | Removes tab as the key to accept an autocomplete suggestion. |
-| **tab** | <details><summary>View</summary>`-editor.action.inlineSuggest.commit`</details> | Removes Tab as the key to accept an inline suggestion. |
-| **cmd+t** | <details><summary>View</summary>`-workbench.action.showAllSymbols`</details> | Unbinds the default Go to Symbol command for cmd+t. |
-| **cmd+t** | <details><summary>View</summary>`workbench.action.terminal.split`</details> | Splits the current terminal pane. |
-| **cmd+t** | <details><summary>View</summary>`explorer.newFile` `when: explorerViewletFocus`</details> | Creates a new file when the Explorer sidebar is focused. |
-| **cmd+w** | <details><summary>View</summary>`workbench.action.terminal.kill` `when: terminalFocus`</details> | Kills the active terminal when a terminal is focused. |
-| **cmd+[** | <details><summary>View</summary>`workbench.action.terminal.focusPreviousPane` `when: terminalFocus`</details> | Focuses the previous terminal pane when in the terminal. |
-| **cmd+]** | <details><summary>View</summary>`workbench.action.terminal.focusNextPane` `when: terminalFocus`</details> | Focuses the next terminal pane when in the terminal. |
-| **cmd+[** | <details><summary>View</summary>`workbench.action.previousEditor` `when: editorFocus`</details> | Navigates to the previous editor tab when in the editor. |
-| **cmd+]** | <details><summary>View</summary>`workbench.action.nextEditor` `when: editorFocus`</details> | Navigates to the next editor tab when in the editor. |
-| **cmd+b** | <details><summary>View</summary>`workbench.explorer.fileView.focus` `when: activeViewlet != explorer`</details> | Opens and focuses the Explorer sidebar when it isn't already active. |
-| **cmd+b** | <details><summary>View</summary>`workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus`</details> | Returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back. |
-| **cmd+shift+t** | <details><summary>View</summary>`explorer.newFolder` `when: explorerViewletFocus`</details> | Creates a new folder when the explorer sidebar is focused. |
+| **tab** | <details><summary>View</summary>`-acceptSelectedSuggestion`</details> | removes tab as the key to accept an autocomplete suggestion. |
+| **tab** | <details><summary>View</summary>`-editor.action.inlineSuggest.commit`</details> | removes Tab as the key to accept an inline suggestion. |
+| **cmd+t** | <details><summary>View</summary>`-workbench.action.showAllSymbols`</details> | unbinds the default `go to symbol` command for cmd+t. |
+| **cmd+t** | <details><summary>View</summary>`workbench.action.terminal.split`</details> | splits the current terminal pane. |
+| **cmd+t** | <details><summary>View</summary>`explorer.newFile` `when: explorerViewletFocus`</details> | creates a new file when the Explorer sidebar is focused. |
+| **cmd+w** | <details><summary>View</summary>`workbench.action.terminal.kill` `when: terminalFocus`</details> | kills the active terminal when a terminal is focused. |
+| **cmd+[** | <details><summary>View</summary>`workbench.action.terminal.focusPreviousPane` `when: terminalFocus`</details> | focuses the previous terminal pane when in the terminal. |
+| **cmd+]** | <details><summary>View</summary>`workbench.action.terminal.focusNextPane` `when: terminalFocus`</details> | focuses the next terminal pane when in the terminal. |
+| **cmd+[** | <details><summary>View</summary>`workbench.action.previousEditor` `when: editorFocus`</details> | navigates to the previous editor tab when in the editor. |
+| **cmd+]** | <details><summary>View</summary>`workbench.action.nextEditor` `when: editorFocus`</details> | navigates to the next editor tab when in the editor. |
+| **cmd+b** | <details><summary>View</summary>`workbench.explorer.fileView.focus` `when: activeViewlet != explorer`</details> | opens and focuses the Explorer sidebar when it isn't already active. |
+| **cmd+b** | <details><summary>View</summary>`workbench.action.focusActiveEditorGroup` `when: explorer is active OR no editorFocus`</details> | returns focus to the active editor when the explorer is open or no editor is focused; effectively toggles focus back. |
+| **cmd+shift+t** | <details><summary>View</summary>`explorer.newFolder` `when: explorerViewletFocus`</details> | creates a new folder when the explorer sidebar is focused. |
 
-### Preferences
+### preferences
 **preferences.sh:**
-| Setting | Value | Description |
+| setting | value | description |
 |---------|-------|-------------|
-| **ApplePressAndHoldEnabled** | `false` | Disables the press and hold accent menu, allowing keys to repeat when held instead. |
-| **KeyRepeat** | `1` | Sets the key repeat rate to the fastest possible (lower = faster). |
-| **InitialKeyRepeat** | `10` | Sets the delay before key repeat kicks in (lower = shorter delay). |
-| **com.apple.trackpad.scaling** | `3.0` | Sets trackpad tracking speed to very fast. |
-| **Clicking** | `true` | Enables tap on the trackpad. |
-| **autohide** | `true` | Dock automatically hides when not in use. |
-| **autohide-delay** | `0` | Removes the delay before the dock toggles. |
-| **autohide-time-modifier** | `0.15` | Sets the dock toggle animation duration to be faster. |
-| **show-recents** | `false` | Hides the "recent applications" section from the dock. |
-| **tilesize** | `36` | Sets dock icon size to 36px. |
-| **AppleShowAllFiles** | `true` | Shows hidden files (dotfiles, etc.) in Finder. |
-| **AppleShowAllExtensions** | `true` | Always shows file extensions for all files. |
-| **ShowPathbar** | `true` | Shows the path bar at the bottom of Finder windows. |
-| **ShowStatusBar** | `true` | Shows the status bar (item count, disk space) at the bottom of Finder windows. |
-| **FXDefaultSearchScope** | `"SCcf"` | Sets default Finder search scope to the current folder instead of "This Mac". |
-| **FXPreferredViewStyle** | `"Nlsv"` | Sets default Finder view to list view. |
-| **DSDontWriteNetworkStores** | `true` | Prevents internal Mac files from being created on network volumes. |
-| **DSDontWriteUSBStores** | `true` | Prevents internal Mac files from being created on USB drives. |
-| **screencapture location** | `"$HOME/Desktop"` | Saves screenshots to the desktop. |
-| **screencapture type** | `"png"` | Saves screenshots as PNG files. |
-| **disable-shadow** | `true` | Removes the drop shadow from window screenshots. |
-| **NSAutomaticQuoteSubstitutionEnabled** | `false` | Disables smart/curly quote substitution. |
-| **NSAutomaticDashSubstitutionEnabled** | `false` | Disables automatic em dash substitution. |
-| **NSAutomaticSpellingCorrectionEnabled** | `false` | Disables auto correct. |
-| **NSAutomaticCapitalizationEnabled** | `false` | Disables automatic capitalization of the first word in a sentence. |
-| **NSAutomaticPeriodSubstitutionEnabled** | `false` | Disables double space to period substitution. |
-| **mru-spaces** | `false` | Disables automatic reordering of spaces based on most recent use. |
-| **AppleSpacesSwitchOnActivate** | `false` | Prevents Mac from switching to a space where an app is already open when you activate that app. |
-| **Wi-Fi DNS** | `1.1.1.1, 8.8.8.8` | Sets DNS servers to Cloudflare and Google for more reliable resolution. |
+| **ApplePressAndHoldEnabled** | `false` | disables the press and hold accent menu, allowing keys to repeat when held instead. |
+| **KeyRepeat** | `1` | sets the key repeat rate to the fastest possible (lower = faster). |
+| **InitialKeyRepeat** | `10` | sets the delay before key repeat kicks in (lower = shorter delay). |
+| **com.apple.trackpad.scaling** | `3.0` | sets trackpad tracking speed to very fast. |
+| **Clicking** | `true` | enables tap on the trackpad. |
+| **autohide** | `true` | dock automatically hides when not in use. |
+| **autohide-delay** | `0` | removes the delay before the dock toggles. |
+| **autohide-time-modifier** | `0.15` | sets the dock toggle animation duration to be faster. |
+| **show-recents** | `false` | hides the "recent applications" section from the dock. |
+| **tilesize** | `36` | sets dock icon size to be smaller. |
+| **AppleShowAllFiles** | `true` | shows hidden files (dotfiles, etc.) in finder. |
+| **AppleShowAllExtensions** | `true` | always shows file extensions for all files. |
+| **ShowPathbar** | `true` | shows the path bar at the bottom of finder windows. |
+| **ShowStatusBar** | `true` | shows the status bar (item count, disk space) at the bottom of finder windows. |
+| **FXDefaultSearchScope** | `"SCcf"` | sets default finder search scope to the current folder instead of "this mac". |
+| **FXPreferredViewStyle** | `"Nlsv"` | sets default finder view to list view. |
+| **DSDontWriteNetworkStores** | `true` | prevents internal mac files from being created on network volumes. |
+| **DSDontWriteUSBStores** | `true` | prevents internal mac files from being created on usb drives. |
+| **screencapture location** | `"$HOME/Desktop"` | saves screenshots to the desktop. |
+| **screencapture type** | `"png"` | saves screenshots as png files. |
+| **disable-shadow** | `true` | removes the drop shadow from window screenshots. |
+| **NSAutomaticQuoteSubstitutionEnabled** | `false` | disables smart/curly quote substitution. |
+| **NSAutomaticDashSubstitutionEnabled** | `false` | disables automatic em dash substitution. |
+| **NSAutomaticSpellingCorrectionEnabled** | `false` | disables auto correct. |
+| **NSAutomaticCapitalizationEnabled** | `false` | disables automatic capitalization of the first word in a sentence. |
+| **NSAutomaticPeriodSubstitutionEnabled** | `false` | disables double space to period substitution. |
+| **mru-spaces** | `false` | disables automatic reordering of spaces based on most recent use. |
+| **AppleSpacesSwitchOnActivate** | `false` | prevents mac from switching to a space where an app is already open when you activate that app. |
+| **Wi-Fi DNS** | `1.1.1.1, 8.8.8.8` | sets dns servers to cloudflare and google for more reliable resolution. |
 
-### Packages
+### packages
 **packages.sh:**
-| Package | Description |
+| package | description |
 |---------|-------------|
-| **homebrew** | Installs the Homebrew package manager and adds it to the shell environment. |
-| **git** | Version control system. |
-| **node** | JavaScript runtime for running and building Node.js applications. |
-| **python** | Python programming language interpreter. |
-| **gcc** | GNU C/C++ compiler collection. |
-| **make** | Build automation tool. |
-| **docker** | Platform for building and running containerized applications. |
-| **docker-compose** | Tool for defining and running multi-container Docker applications. |
-| **colima** | Required for macOS to run a Linux VM for Docker. |
-| **postgresql** | Relational database management system. |
-| **redis** | In-memory data structure store, used as a database and cache. |
-| **sqlite** | Lightweight embedded relational database. |
-| **curl** | Command-line tool for transferring data with URLs. |
-| **jq** | Command-line JSON processor; required for later scripts. |
-| **dotnet** | .NET SDK for building and running .NET applications. |
+| **homebrew** | installs the homebrew package manager and adds it to the shell environment. |
+| **git** | version control system. |
+| **node** | javascript runtime for running and building node.js applications. |
+| **python** | python programming language interpreter. |
+| **gcc** | gnu c/c++ compiler collection. |
+| **make** | build automation tool. |
+| **docker** | platform for building and running containerized applications. |
+| **docker-compose** | tool for defining and running multiple container docker applications. |
+| **colima** | required for macos to run a linux vm (for docker). |
+| **postgresql** | relational database management system. |
+| **redis** | in memory data store, typically used as a cache. |
+| **sqlite** | lightweight embedded relational database. |
+| **curl** | command line tool for transferring data with urls. |
+| **jq** | command line json processor (required for some contained scripts). |
+| **dotnet** | .net sdk for building and running .net applications. |
 
 ---
 
-## Contributing
-This project is not currently open to contributions.
+## contributing
+this project is not currently open to contributions.
