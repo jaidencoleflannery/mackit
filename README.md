@@ -5,12 +5,12 @@ optimize the macos operating system for software development.
 
 > **warning:** running the following commands executes all scripts in this repository. please review the changes this project makes before running on your system.
 
-**option 1: run directly:**
+**option 1, run directly:**
 ```zsh
 curl -s https://raw.githubusercontent.com/jaidencoleflannery/mackit/master/auto-configuration.sh | zsh
 ```
 
-**option 2: clone and run locally:**
+**option 2, clone and run locally:**
 ```zsh
 git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod +x auto-configuration.sh && ./auto-configuration.sh
 ```
