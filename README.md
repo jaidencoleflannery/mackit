@@ -44,7 +44,7 @@ git clone https://github.com/jaidencoleflannery/mackit.git && cd mackit && chmod
 | **editor.codeActionsOnSave** | `source.fixAll.eslint: "never"` | eslint auto fix disabled on save. |
 | **explorer.confirmDragAndDrop** | `false` | drag and drop in the explorer happen without a prompt. |
 
-### vscode Keybindings
+### vscode keybindings
 #### general overview:
 | shortcut | action |
 |----------|--------|
